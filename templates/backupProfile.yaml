@@ -1,0 +1,55 @@
+# surveydb 용 백업 설정
+backupProfiles:
+- name: surveydb-instance-profile-pvc
+  dumpInstance:
+    storage:
+      persistentVolumeClaim:
+        claimName: backup-pvc-surveydb
+backupSchedules:
+- name: schedule-inline
+  schedule: "*/5 * * * *"
+  deleteBackupData: false
+  enabled: true
+  backupProfileName: surveydb-instance-profile-pvc
+---
+# userdb 용 백업 설정
+backupProfiles:
+- name: userdb-instance-profile-pvc
+  dumpInstance:
+    storage:
+      persistentVolumeClaim:
+        claimName: backup-pvc-userdb 
+backupSchedules:
+- name: schedule-inline
+  schedule: "*/5 * * * *"
+  deleteBackupData: false
+  enabled: true
+  backupProfileName: userdb-instance-profile-pvc
+---
+# responsedb 용 백업 설정
+backupProfiles:
+- name: responsedb-instance-profile-pvc
+  dumpInstance:
+    storage:
+      persistentVolumeClaim:
+        claimName: backup-pvc-responsedb 
+backupSchedules:
+- name: schedule-inline
+  schedule: "*/5 * * * *"
+  deleteBackupData: false
+  enabled: true
+  backupProfileName: responsedb-instance-profile-pvc
+---
+# analysisdb 용 백업 설정
+backupProfiles:
+- name: analysisdb-instance-profile-pvc
+  dumpInstance:
+    storage:
+      persistentVolumeClaim:
+        claimName: backup-pvc-analysisdb
+backupSchedules:
+- name: schedule-inline
+  schedule: "*/5 * * * *"
+  deleteBackupData: false
+  enabled: true
+  backupProfileName: analysisdb-instance-profile-pvc
